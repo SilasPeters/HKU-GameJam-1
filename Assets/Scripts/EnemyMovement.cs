@@ -1,17 +1,20 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Utilities;
 
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] public Transform playerTransform;
     [SerializeField] public float stalkUpdateFrequency;
     [SerializeField] public float rotationAroundPlayer; // TODO make this a private unset variable, see Start()
-    [SerializeField] public float distanceFromPlayer;
+    [SerializeField] public float[] distancesFromPlayer;
     [SerializeField] public float WanderDistanceMin;
     [SerializeField] public float WanderDistanceMax;
 
     private float lastStalkUpdate;
+
+    private float currentDistanceFromPlayer => distancesFromPlayer[GameState.TeletubbiesFound];
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
         // TODO Set rotationAroundPlayer based on current position
 
         StartCoroutine(Stalk());
+
     }
 
     // Update is called once per frame
@@ -55,6 +59,6 @@ public class EnemyMovement : MonoBehaviour
 
         Vector3 rotation = new Vector3(Mathf.Cos(rotationAroundPlayer * Mathf.Deg2Rad), 0, Mathf.Sin(rotationAroundPlayer * Mathf.Deg2Rad)).normalized;
 
-        return playerTransform.position + rotation * distanceFromPlayer;
+        return playerTransform.position + rotation * currentDistanceFromPlayer;
     }
 }
