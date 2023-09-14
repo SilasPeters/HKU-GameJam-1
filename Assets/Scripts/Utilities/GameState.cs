@@ -10,6 +10,7 @@ namespace Utilities
 		public void Start()
 		{
 			_mirror = GameObject.FindGameObjectWithTag("Mirror");
+			_mirror.SetActive(false);
 		}
 
 		public static int TeletubbiesFound { get; private set; } = 0;

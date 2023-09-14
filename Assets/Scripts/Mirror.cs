@@ -1,12 +1,13 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 public class Mirror : MonoBehaviour
 {
+	[SerializeField] public GameObject lionCloseUp;
+
 	private void Start()
 	{
-		gameObject.SetActive(false);
+		// gameObject.SetActive(false);
 	}
 
 	private IEnumerator OnTriggerEnter(Collider other)
@@ -14,8 +15,6 @@ public class Mirror : MonoBehaviour
         if (other.GetType() != typeof(CharacterController))
             yield break;
 
-		Debug.Log("You entered the mirror!");
-		yield return new WaitForSeconds(3);
-		Debug.LogWarning("You died!");
+        lionCloseUp.SetActive(true);
 	}
 }
