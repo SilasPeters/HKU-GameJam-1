@@ -4,6 +4,7 @@ using UnityEngine;
 public class Mirror : MonoBehaviour
 {
 	[SerializeField] public GameObject lionCloseUp;
+	[SerializeField] public AudioSource babyLaugh;
 
 	private void Start()
 	{

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Utilities;
@@ -22,7 +21,6 @@ public class EnemyMovement : MonoBehaviour
         // TODO Set rotationAroundPlayer based on current position
 
         StartCoroutine(Stalk());
-
     }
 
     // Update is called once per frame
@@ -36,20 +34,8 @@ public class EnemyMovement : MonoBehaviour
         while (true)
         {
             Vector3 newPosition = DetermineNewPositionAroundPlayer();
-            StartCoroutine(MoveTo(newPosition, UnityEngine.Random.Range(stalkUpdateFrequency * 0.5f, stalkUpdateFrequency)));
+            StartCoroutine(CommonCode.MoveTo(transform, newPosition, UnityEngine.Random.Range(stalkUpdateFrequency * 0.5f, stalkUpdateFrequency)));
             yield return new WaitForSeconds(stalkUpdateFrequency); // Repeat after x seconds, but not before the previous coroutine ended
-        }
-    }
-
-    private IEnumerator MoveTo(Vector3 targetPos, float duration)
-    {
-        Vector3 startPos    = transform.position;
-        float   timeStarted = Time.time;
-
-        while (Time.time - timeStarted < duration)
-        {
-            transform.position = Vector3.Lerp(startPos, targetPos, (Time.time - timeStarted) / duration);
-            yield return null;
         }
     }
 

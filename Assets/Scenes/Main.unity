@@ -459,6 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6cd136d717342a3a0199bed9d35e78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teletubbiesFound: []
 --- !u!4 &451725285
 Transform:
   m_ObjectHideFlags: 0
@@ -1114,6 +1115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lionCloseUp: {fileID: 1221690289}
+  babyLaugh: {fileID: 0}
 --- !u!65 &1142212202
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1214,7 +1216,7 @@ Transform:
   m_GameObject: {fileID: 1221690289}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.30999976, y: 5.88, z: -199.66}
+  m_LocalPosition: {x: -0.203, y: 5.88, z: -199.66}
   m_LocalScale: {x: 1.7556075, y: 1.7556078, z: 1.7556075}
   m_ConstrainProportionsScale: 0
   m_Children: []

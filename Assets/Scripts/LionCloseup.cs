@@ -4,7 +4,7 @@ using UnityEngine;
 public class LionCloseup : MonoBehaviour
 {
 	[SerializeField] public float duration;
-	[SerializeField] public Camera camera;
+	[SerializeField] public new Camera camera;
 
 	private void Start()
 	{

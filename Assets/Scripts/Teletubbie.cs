@@ -3,7 +3,6 @@ using Utilities;
 
 public class Teletubbie : MonoBehaviour
 {
-
     private bool _found = false;
 
     private void OnTriggerEnter(Collider other)

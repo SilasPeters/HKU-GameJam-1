@@ -6,6 +6,7 @@ namespace Utilities
 	public class GameState : MonoBehaviour
 	{
 		private static GameObject _mirror;
+		[SerializeField] public AudioSource[] teletubbiesFound;
 
 		public void Start()
 		{
@@ -18,6 +19,8 @@ namespace Utilities
 		public static void IncrementTeletubbieFoundCount()
 		{
 			TeletubbiesFound += 1;
+
+
 			if (TeletubbiesFound >= 4)
 				RevealMirror();
 		}
