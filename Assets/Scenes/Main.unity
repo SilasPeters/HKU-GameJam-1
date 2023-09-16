@@ -1897,13 +1897,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 428c9ed2088c069878de333f73f8948f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1972697682}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 428c9ed2088c069878de333f73f8948f, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1972697681}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 428c9ed2088c069878de333f73f8948f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1972697683}
+      addedObject: {fileID: 1972697682}
   m_SourcePrefab: {fileID: 100100000, guid: 428c9ed2088c069878de333f73f8948f, type: 3}
 --- !u!1 &1972697679 stripped
 GameObject:
@@ -1950,35 +1947,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1972697679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20b191239cbfbcb9dabddf99200c4802, type: 3}
+  m_Script: {fileID: 11500000, guid: 52830159ab7c7cd87bdb8a2a5244edbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Controller: {fileID: 1972697681}
-  player: {fileID: 1972697680}
-  MovementSpeed: 10
+  movementSpeed: 10
   sprintMultiplier: 1
-  g: 100
+  g: 0.3
   jumpHeight: 10
   massPlayer: 100
-  FOVShiftTime: 1
-  FOVSprint: 60
-  FOVNormal: 60
---- !u!114 &1972697683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972697679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51843dfa3f3340a2a38b0e1cbf43d078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  fovShiftTime: 1
+  fovSprint: 60
+  fovNormal: 60
   mouseSensX: 100
   mouseSensY: 100
-  Player: {fileID: 1972697680}
-  Cam: {fileID: 963194228}
+  playerCam: {fileID: 963194227}
 --- !u!4 &2074646301 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 423996, guid: 977d462d3da090443aa549827d636355, type: 3}

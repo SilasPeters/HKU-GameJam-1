@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Utilities;
+using static Submodules.Unity_Essentials.Static.Movement;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -34,14 +35,14 @@ public class EnemyMovement : MonoBehaviour
         while (true)
         {
             Vector3 newPosition = DetermineNewPositionAroundPlayer();
-            StartCoroutine(CommonCode.MoveTo(transform, newPosition, UnityEngine.Random.Range(stalkUpdateFrequency * 0.5f, stalkUpdateFrequency)));
+            StartCoroutine(MoveTo(transform, newPosition, Random.Range(stalkUpdateFrequency * 0.5f, stalkUpdateFrequency)));
             yield return new WaitForSeconds(stalkUpdateFrequency); // Repeat after x seconds, but not before the previous coroutine ended
         }
     }
 
     private Vector3 DetermineNewPositionAroundPlayer()
     {
-        rotationAroundPlayer += UnityEngine.Random.Range(WanderDistanceMin, WanderDistanceMax);
+        rotationAroundPlayer += Random.Range(WanderDistanceMin, WanderDistanceMax);
 
         Vector3 rotation = new Vector3(Mathf.Cos(rotationAroundPlayer * Mathf.Deg2Rad), 0, Mathf.Sin(rotationAroundPlayer * Mathf.Deg2Rad)).normalized;
 
