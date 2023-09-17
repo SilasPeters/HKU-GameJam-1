@@ -36,7 +36,6 @@ namespace Utilities
 		/// </summary>
 		private void RevealLocationOfEnemy()
 		{
-			Debug.Log("Helping a little");
 			var soundLocation = teletubbies.FirstOrDefault(x => !x.found)?.transform.position;
 			if (soundLocation is null)
 				return;
