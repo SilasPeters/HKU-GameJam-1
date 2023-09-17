@@ -1,26 +1,29 @@
 using System.Collections;
+using Submodules.Unity_Essentials.Static;
 using UnityEngine;
 using Utilities;
 using static Submodules.Unity_Essentials.Static.Movement;
 
-public class EnemyMovement : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    [SerializeField] public Transform playerTransform;
-    [SerializeField] public float stalkUpdateFrequency;
-    [SerializeField] public float rotationAroundPlayer; // TODO make this a private unset variable, see Start()
-    [SerializeField] public float[] distancesFromPlayer;
-    [SerializeField] public float WanderDistanceMin;
-    [SerializeField] public float WanderDistanceMax;
+    public Transform playerTransform;
+    public float stalkUpdateFrequency;
+    public float rotationAroundPlayer; // TODO make this a private unset variable, see Start()
+    public float[] distancesFromPlayer;
+    public float WanderDistanceMin;
+    public float WanderDistanceMax;
 
     private float lastStalkUpdate;
+    private GameState _gameState;
 
-    private float currentDistanceFromPlayer => distancesFromPlayer[GameState.TeletubbiesFound];
+    private float currentDistanceFromPlayer => distancesFromPlayer[_gameState.TeletubbiesFound];
 
     // Start is called before the first frame update
     void Start()
     {
         // TODO Set rotationAroundPlayer based on current position
 
+        _gameState = Singleton<GameState>.Instance;
         StartCoroutine(Stalk());
     }
 
@@ -46,6 +49,8 @@ public class EnemyMovement : MonoBehaviour
 
         Vector3 rotation = new Vector3(Mathf.Cos(rotationAroundPlayer * Mathf.Deg2Rad), 0, Mathf.Sin(rotationAroundPlayer * Mathf.Deg2Rad)).normalized;
 
-        return playerTransform.position + rotation * currentDistanceFromPlayer;
+        var result = playerTransform.position + rotation * currentDistanceFromPlayer;
+        result.y = transform.position.y;
+        return result;
     }
 }

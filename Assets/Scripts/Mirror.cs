@@ -3,13 +3,8 @@ using UnityEngine;
 
 public class Mirror : MonoBehaviour
 {
-	[SerializeField] public GameObject lionCloseUp;
-	[SerializeField] public AudioSource babyLaugh;
-
-	private void Start()
-	{
-		// gameObject.SetActive(false);
-	}
+	public GameObject lionCloseUp;
+	public AudioSource babyLaugh;
 
 	private IEnumerator OnTriggerEnter(Collider other)
 	{

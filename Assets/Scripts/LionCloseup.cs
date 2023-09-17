@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class LionCloseup : MonoBehaviour
 {
-	[SerializeField] public float duration;
-	[SerializeField] public new Camera camera;
+	public float duration;
+	public new Camera camera;
+	public GameObject endscreen;
 
 	private void Start()
 	{
@@ -24,6 +25,6 @@ public class LionCloseup : MonoBehaviour
 			yield return null;
 		}
 
-		camera.enabled = false;
+		endscreen.SetActive(true);
 	}
 }
