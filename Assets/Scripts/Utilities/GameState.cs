@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using Submodules.Unity_Essentials.Static;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Utilities
 {
@@ -10,7 +11,7 @@ namespace Utilities
 		public AudioSource[] teletubbiesFoundAudio;
 		public AudioSource taunt;
 		public Teletubbie[] teletubbies;
-		public float timeBeforeHint;
+		public float timeBetweenHints;
 
 		private GameObject _mirror;
 		private float _timeLastPlayerProgression;
@@ -27,9 +28,7 @@ namespace Utilities
 		public int TeletubbiesFound { get; private set; } = 0;
 
 		private IEnumerator GivePlayerHints()
-		{
-			yield return General.RepeatWithInterval(timeBeforeHint, RevealLocationOfEnemy);
-		}
+			=> HighLevelFunctions.RepeatWithInterval(timeBetweenHints, RevealLocationOfEnemy);
 
 
 		/// <summary>
@@ -37,6 +36,7 @@ namespace Utilities
 		/// </summary>
 		private void RevealLocationOfEnemy()
 		{
+			Debug.Log("Helping a little");
 			var soundLocation = teletubbies.FirstOrDefault(x => !x.found)?.transform.position;
 			if (soundLocation is null)
 				return;
